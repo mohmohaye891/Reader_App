@@ -17,6 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="မေဟာ္သဓာ"
             app:navigationIcon="@drawable/ic_menu_white_24dp"/>
 
     </android.support.design.widget.AppBarLayout>
@@ -40,12 +41,45 @@
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
             <TextView
+                android:id="@+id/tv_popular_lists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_popular_lists"
+                android:layout_below="@+id/frag_feature"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_marginLeft="@dimen/margin_card_medium_2"/>
+
+            <TextView
+                android:id="@+id/tv_show_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_all_show"
+                android:layout_below="@+id/frag_feature"
+                android:layout_marginRight="@dimen/margin_card_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:textStyle="italic"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_alignParentRight="true"/>
+
+            <fragment
+                android:id="@+id/frag_popular"
+                android:name="com.padcmyanmar.readerapp.fragments.PopularFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_medium_2"
+                android:layout_below="@+id/tv_popular_lists"
+                android:layout_marginTop="@dimen/margin_medium_2"/>
+
+            <TextView
                 android:id="@+id/tv_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NEW"
-                android:layout_below="@+id/frag_feature"
+                android:text="အသစ္ထြြက္"
+                android:layout_below="@+id/frag_popular"
                 android:layout_marginLeft="@dimen/margin_medium_2"
+                android:textStyle="bold"
                 android:layout_marginTop="@dimen/margin_medium_2"/>
 
             <android.support.v7.widget.RecyclerView

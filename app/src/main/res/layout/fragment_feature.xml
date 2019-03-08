@@ -19,6 +19,6 @@
         android:layout_weight="1"
         android:scaleType="fitXY"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:src="@drawable/image2"/>
+        android:src="@drawable/image12"/>
 
 </LinearLayout>
