@@ -1,13 +1,16 @@
-package com.padcmyanmar.readerapp;
+package com.padcmyanmar.readerapp.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.padcmyanmar.readerapp.R;
+import com.padcmyanmar.readerapp.adapters.NewArrivalsAdapter;
+import com.padcmyanmar.readerapp.fragments.FeatureFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,14 +21,21 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        showFeatureFragment();
+
+        RecyclerView rvNewArrivals = findViewById(R.id.rv_arrivalNews);
+        rvNewArrivals.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+
+        NewArrivalsAdapter newArrivalAdapter = new NewArrivalsAdapter();
+        rvNewArrivals.setAdapter(newArrivalAdapter);
+
+
+    }
+
+    private void showFeatureFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frag_feature, FeatureFragment.newInstance("showFeatureFragment"))
+                .commit();
     }
 
     @Override
